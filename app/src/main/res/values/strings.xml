@@ -1,0 +1,42 @@
+<resources>
+
+    <string name="app_name">Cakes.lk</string>
+    <!-- Main view -->
+    <string name="main_employee">Employee</string>
+    <string name="main_view_employee">View Employee</string>
+    <string name="main_cake">Cakes</string>
+    <string name="main_view_cake">View Cakes</string>
+    <string name="main_supplier">Supplier</string>
+    <string name="main_view_supplier">View Supplier</string>
+    <string name="main_product">Product</string>
+    <string name="main_view_product">View Product</string>
+
+    <!-- Cakes -->
+    <string name="add_cake">Adding cake</string>
+    <string name="cake_name">Cake Name</string>
+    <string name="selling_price">Price</string>
+    <string name="description">Description</string>
+    <string name="add_cakes">Add</string>
+    <string name="cake_update">Editing Cake</string>
+    <string name="edit">Update</string>
+    <string name="delete">Delete</string>
+    <string name="cake_search">Search Cake</string>
+
+    <array name="category">
+        <item>"Please select a Flavour"</item>
+        <item>Chocolate</item>
+        <item>Vanilla</item>
+        <item>Strawberry</item>
+    </array>
+
+    <array name="cake">
+        <item>Vanilla</item>
+        <item>Chocolate</item>
+        <item>Strawberry</item>
+    </array>
+
+    <!-- Menu -->
+    <string name="menu">Menu</string>
+    <string name="profile_setting">Profile</string>
+    <string name="logout">Log out</string>
+</resources>
