@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.example.cakeslk.Orders.OrderView;
+import com.example.cakeslk.Supplier.SupplierView;
 import com.example.cakeslk.cakes.CakeUpdate;
 import com.example.cakeslk.cakes.CakesView;
 
@@ -54,6 +55,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.product_layout:
                 Intent intent3 = new Intent(MainActivity.this, OrderView.class);
                 startActivity(intent3);
+                break;
+
+            case R.id.supplier_layout:
+                Intent intent1 = new Intent(MainActivity.this, SupplierView.class);
+                startActivity(intent1);
                 break;
 
         }

@@ -16,6 +16,9 @@
         <activity android:name=".Orders.OrderEdit"></activity>
         <activity android:name=".Orders.OrderAdd"></activity>
         <activity android:name=".Orders.OrderView" />
+        <activity android:name=".Supplier.SupplierEdit"></activity>
+        <activity android:name=".Supplier.SupplierAdd" />
+        <activity android:name=".Supplier.SupplierView"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

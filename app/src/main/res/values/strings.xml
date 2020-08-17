@@ -59,8 +59,22 @@
     <string name="eggs_and_milk">Eggs and Milk</string>
     <string name="halal_farm">Halal Farm</string>
 
+   <string name="n_sup">Add</string>
+
+<string name ="pName">Supplier Name </string>
+<string name ="Snum">Supplier Account Number</string>
+<string name ="Pnum">Phone Number</string>
+<string name ="Sadd">Address</string>
+
+<string name ="S_num">12345</string>
+<string name = "P_num">0771234567</string>
+<string name = "Add">NB 0741 united states</string>
+
+
     <!-- Menu -->
     <string name="menu">Menu</string>
     <string name="profile_setting">Profile</string>
     <string name="logout">Log out</string>
+    <string name="braun">braun</string>
+    <string name="Supplier_search">Supplier</string>
 </resources>
