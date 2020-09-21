@@ -3,57 +3,149 @@ package com.example.cakeslk.cakes;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.cakeslk.R;
 
 public class CakeUpdate extends AppCompatActivity {
 
+    EditText cName,cPrice,cDescription;
+    Spinner spinner;
+    ProgressBar progressBar;
+    Button btnUpdate,btnDelete;
+    DatabaseHelper databaseHelper;
+    Cake cake;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cake_update);
-    }
 
-    public void clickUpdateButton(View view){
-        Intent intent = new Intent(this,CakesView.class);
-        startActivity(intent);
+        databaseHelper=new DatabaseHelper(this);
 
-        Context context = getApplicationContext();
-        CharSequence msg = "Cake is updated successfully";
-        int duration = Toast.LENGTH_SHORT;
-        Toast toast = Toast.makeText(context, msg, duration);
-        toast.show();
-    }
+        Intent intent = getIntent();
+        cake = intent.getParcelableExtra("Cake");
 
-    public void clickDeleteButton(View view) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Are you sure you want to delete?")
-                .setCancelable(false)
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        Intent intent = new Intent(CakeUpdate.this,CakesView.class);
-                        startActivity(intent);
+        cName = findViewById(R.id.pName);
+        cDescription = findViewById(R.id.pDescription);
+        cPrice = findViewById(R.id.pPrice);
+        btnDelete = findViewById(R.id.btnDelete);
+        btnUpdate = findViewById(R.id.btnUpdate);
+        spinner = findViewById(R.id.spinner);
+        progressBar = findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.INVISIBLE);
 
-                        Context context = getApplicationContext();
-                        CharSequence msg = "Cake is deleted successfully";
-                        int duration = Toast.LENGTH_SHORT;
-                        Toast toast = Toast.makeText(context, msg, duration);
-                        toast.show();
+        cName.setText(cake.getCakeName());
+        String flavour = cake.getFlavour();
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.category,R.layout.support_simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        if(flavour!=null){
+            int spinnerPos=adapter.getPosition(flavour);
+            spinner.setSelection(spinnerPos);
+        }
+        cPrice.setText(Double.toString(cake.getPrice()));
+        cDescription.setText(cake.getDescription());
+
+        cName.setEnabled(false);
+        spinner.setEnabled(false);
+        cPrice.setEnabled(false);
+        cDescription.setEnabled(false);
+
+
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (btnUpdate.getText().toString().toUpperCase().equals("EDIT")) {
+                    btnUpdate.setText("UPDATE");
+                    cName.setEnabled(true);
+                    spinner.setEnabled(true);
+                    cPrice.setEnabled(true);
+                    cDescription.setEnabled(true);
+                }
+                else{
+
+                    try{
+
+                        if(!cName.getText().toString().isEmpty()){
+                            if(!spinner.getSelectedItem().toString().equals("Please select a Category")){
+                                if (!cPrice.getText().toString().isEmpty()){
+                                    if(!cDescription.getText().toString().isEmpty()){
+
+                                        btnUpdate.setVisibility(View.INVISIBLE);
+                                        btnDelete.setVisibility(View.INVISIBLE);
+                                        progressBar.setVisibility(View.VISIBLE);
+
+                                        String cake_Name=cName.getText().toString();
+                                        String cake_Flavour=spinner.getSelectedItem().toString();
+                                        double cake_Price=Double.parseDouble(cPrice.getText().toString());
+                                        String cake_Description=cDescription.getText().toString();
+
+                                        Cake cake1 = new Cake(cake_Name,cake_Flavour,cake_Price,cake_Description);
+                                        cake1.setCakeId(cake.getCakeId());
+                                        updateData(cake1);
+                                    }
+                                    else
+                                        Toast.makeText(CakeUpdate.this,"Description cannot be Empty!!!",Toast.LENGTH_LONG).show();
+                                }
+                                else
+                                    Toast.makeText(CakeUpdate.this,"Price cannot be Empty!!!",Toast.LENGTH_LONG).show();
+                            }
+                            else
+                                Toast.makeText(CakeUpdate.this,"Flavour should be Selected!!!",Toast.LENGTH_LONG).show();
+                        }
+                        else
+                            Toast.makeText(CakeUpdate.this,"Cake Name cannot be Empty!!!",Toast.LENGTH_LONG).show();
                     }
-                })
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
+                    catch (Exception e){
+                        Toast.makeText(CakeUpdate.this,"Invalid Numeric Input!!!",Toast.LENGTH_LONG).show();
                     }
-                });
-        AlertDialog alert = builder.create();
-        alert.show();
 
+                }
+            }
+        });
+
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btnUpdate.setVisibility(View.INVISIBLE);
+                btnDelete.setVisibility(View.INVISIBLE);
+                progressBar.setVisibility(View.VISIBLE);
+
+                databaseHelper.deleteCake(cake.getCakeId());
+
+                cName.setText("");
+                cPrice.setText("");
+                cDescription.setText("");
+
+                Toast.makeText(CakeUpdate.this,"Cake Successfully Deleted!!!",Toast.LENGTH_LONG).show();
+
+                Intent intent = new Intent(CakeUpdate.this,CakesView.class);
+                startActivity(intent);
+            }
+        });
     }
+
+
+    public void updateData(Cake cake){
+
+        if(databaseHelper.updateCake(cake)){
+            Toast.makeText(CakeUpdate.this,"Successfully Updated!!!",Toast.LENGTH_LONG).show();
+
+            Intent intent = new Intent(CakeUpdate.this,CakesView.class);
+            startActivity(intent);
+        }
+
+        else
+            Toast.makeText(CakeUpdate.this,"Error while Updating....",Toast.LENGTH_LONG).show();
+    }
+
 }

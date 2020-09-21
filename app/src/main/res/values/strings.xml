@@ -21,6 +21,10 @@
     <string name="edit">Update</string>
     <string name="delete">Delete</string>
     <string name="cake_search">Search Cake</string>
+    <string name="Manipulate">Manipulate Cake</string>
+    <string name="cake_flavour">Cake Flavour</string>
+    <string name="cake_desc_hint">Cake Description</string>
+    <string name="cake_price_hint">0.00</string>
 
     <array name="category">
         <item>"Please select a Flavour"</item>
@@ -52,23 +56,23 @@
     </array>
 
     <array name="Products">
-    <item>Eggs and Milks</item>
-    <item>Vanilla and Choclate Essense</item>
-    <item>Decorate Items</item>
+        <item>Eggs and Milks</item>
+        <item>Vanilla and Choclate Essense</item>
+        <item>Decorate Items</item>
     </array>
     <string name="eggs_and_milk">Eggs and Milk</string>
     <string name="halal_farm">Halal Farm</string>
 
-   <string name="n_sup">Add</string>
+    <string name="n_sup">Add</string>
 
-<string name ="pName">Supplier Name </string>
-<string name ="Snum">Supplier Account Number</string>
-<string name ="Pnum">Phone Number</string>
-<string name ="Sadd">Address</string>
+    <string name="pName">Supplier Name </string>
+    <string name="Snum">Supplier Account Number</string>
+    <string name="Pnum">Phone Number</string>
+    <string name="Sadd">Address</string>
 
-<string name ="S_num">12345</string>
-<string name = "P_num">0771234567</string>
-<string name = "Add">NB 0741 united states</string>
+    <string name="S_num">12345</string>
+    <string name="P_num">0771234567</string>
+    <string name="Add">NB 0741 united states</string>
 
 
     <!-- Menu -->

@@ -10,16 +10,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".cakes.CakeUpdate"></activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".cakes.CakeUpdate" />
         <activity android:name=".cakes.CakeAdd" />
         <activity android:name=".cakes.CakesView" />
-        <activity android:name=".Orders.OrderEdit"></activity>
-        <activity android:name=".Orders.OrderAdd"></activity>
+        <activity android:name=".Orders.OrderEdit" />
+        <activity android:name=".Orders.OrderAdd" />
         <activity android:name=".Orders.OrderView" />
-        <activity android:name=".Supplier.SupplierEdit"></activity>
+        <activity android:name=".Supplier.SupplierEdit" />
         <activity android:name=".Supplier.SupplierAdd" />
-        <activity android:name=".Supplier.SupplierView"/>
-        <activity android:name=".MainActivity">
+        <activity android:name=".Supplier.SupplierView" />
+        <activity android:name=".login.Login"
+            android:screenOrientation="portrait"
+            android:theme="@style/LoginTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,6 +30,5 @@
             </intent-filter>
         </activity>
     </application>
-
 
 </manifest>

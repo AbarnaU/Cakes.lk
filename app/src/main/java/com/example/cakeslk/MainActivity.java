@@ -2,9 +2,12 @@ package com.example.cakeslk;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 
@@ -12,6 +15,7 @@ import com.example.cakeslk.Orders.OrderView;
 import com.example.cakeslk.Supplier.SupplierView;
 import com.example.cakeslk.cakes.CakeUpdate;
 import com.example.cakeslk.cakes.CakesView;
+import com.example.cakeslk.login.Login;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -63,5 +67,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
         }
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.logoutMenu:
+                signOut();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    //sign out method
+    void signOut() {
+        Intent i = new Intent(MainActivity.this, Login.class);
+        finishAffinity();
+        startActivity(i);
+    }
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Are you sure you want to exit?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        finishAffinity();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 }
