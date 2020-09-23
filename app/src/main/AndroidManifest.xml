@@ -14,7 +14,7 @@
         <activity android:name=".cakes.CakeUpdate" />
         <activity android:name=".cakes.CakeAdd" />
         <activity android:name=".cakes.CakesView" />
-        <activity android:name=".Orders.OrderEdit" />
+        <activity android:name=".Orders.OrderUpdate" />
         <activity android:name=".Orders.OrderAdd" />
         <activity android:name=".Orders.OrderView" />
         <activity android:name=".Supplier.SupplierEdit" />

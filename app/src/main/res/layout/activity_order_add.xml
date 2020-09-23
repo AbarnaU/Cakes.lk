@@ -9,7 +9,11 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <LinearLayout
@@ -41,7 +45,7 @@
                         android:textStyle="bold" />
 
                     <EditText
-                        android:id="@+id/pName"
+                        android:id="@+id/sName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -51,7 +55,7 @@
                         android:inputType="text" />
 
                     <Spinner
-                        android:id="@+id/spinner"
+                        android:id="@+id/p_spinner"
                         android:layout_width="match_parent"
                         android:layout_height="36dp"
                         android:layout_marginTop="24dp"
@@ -59,7 +63,7 @@
 
 
                     <EditText
-                        android:id="@+id/pPrice"
+                        android:id="@+id/p_Quantity"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -69,7 +73,7 @@
                         android:inputType="numberDecimal" />
 
                     <EditText
-                        android:id="@+id/pDescription"
+                        android:id="@+id/p_Amount"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -79,7 +83,7 @@
                         android:inputType="number" />
 
                     <Button
-                        android:id="@+id/btn_add"
+                        android:id="@+id/btn_add1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -88,7 +92,8 @@
                         android:background="@drawable/button_style"
                         android:onClick="clickAddButton"
                         android:text="@string/add_cakes"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/white"
+                        tools:ignore="OnClick" />
 
                 </LinearLayout>
 

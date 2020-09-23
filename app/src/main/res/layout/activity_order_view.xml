@@ -15,6 +15,7 @@
         android:layout_marginEnd="8dp"
         android:autofillHints=""
         android:hint="@string/Order_search"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -31,115 +32,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_baseline_add"
-        android:onClick="clickAddButton"
-        tools:ignore="OnClick" />
+        android:onClick="setOnClick"/>
 
-    <LinearLayout
-        android:id="@+id/order1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="8dp"
-        android:orientation="horizontal"
+    <ListView
+        android:id="@+id/orderListView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginRight="4dp"
-            android:layout_marginBottom="4dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/sns"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="@string/halal_farm"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/cns"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/eggs_and_milk"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/sas2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="60"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/sas"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="5000.00"
-                android:textSize="18sp" />
-
-        </LinearLayout>
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/order2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/addButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/order1"
-        app:layout_constraintVertical_bias="0.089"
-        tools:ignore="MissingConstraints">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginRight="4dp"
-            android:layout_marginBottom="4dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/sn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="Royal Essense"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/cn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Vanila and Choclate Essense"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/sa2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="200"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/sa"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="4000.00"
-                android:textSize="18sp" />
-
-        </LinearLayout>
-
-
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

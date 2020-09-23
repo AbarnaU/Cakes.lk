@@ -38,9 +38,14 @@
         <item>Chocolate</item>
         <item>Strawberry</item>
     </array>
+
+
     <string name="add_order">Adding Order</string>
     <string name="sup_name">Supplier Name</string>
+    <string name="type">Product Type</string>
     <string name="Quantity">Quantity</string>
+    <string name = "order_quant_hine">0</string>
+    <string name = "order_amount_hine">0.00</string>
     <string name="t_amount">Total Amount</string>
     <string name="add">Add</string>
     <string name="Order_update">Editing Order</string>
@@ -55,11 +60,12 @@
         <item>Decorate Items</item>
     </array>
 
-    <array name="Products">
+    <array name="order">
         <item>Eggs and Milks</item>
         <item>Vanilla and Choclate Essense</item>
         <item>Decorate Items</item>
     </array>
+
     <string name="eggs_and_milk">Eggs and Milk</string>
     <string name="halal_farm">Halal Farm</string>
 
@@ -81,4 +87,5 @@
     <string name="logout">Log out</string>
     <string name="braun">braun</string>
     <string name="Supplier_search">Supplier</string>
+    <string name="todo">TODO</string>
 </resources>

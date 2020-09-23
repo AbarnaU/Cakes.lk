@@ -42,7 +42,8 @@
                     android:background="@drawable/main_view_circle_background"
                     android:backgroundTint="@color/loginPrimary"
                     android:padding="10dp"
-                    app:srcCompat="@drawable/ic_baseline_person" />
+                    app:srcCompat="@drawable/ic_baseline_person"
+                    android:contentDescription="@string/todo" />
 
                 <TextView
                     android:layout_width="wrap_content"
