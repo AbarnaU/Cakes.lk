@@ -17,7 +17,7 @@
         <activity android:name=".Orders.OrderUpdate" />
         <activity android:name=".Orders.OrderAdd" />
         <activity android:name=".Orders.OrderView" />
-        <activity android:name=".Supplier.SupplierEdit" />
+        <activity android:name=".Supplier.SupplierUpdate" />
         <activity android:name=".Supplier.SupplierAdd" />
         <activity android:name=".Supplier.SupplierView" />
         <activity android:name=".login.Login"

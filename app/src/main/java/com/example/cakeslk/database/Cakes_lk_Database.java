@@ -24,7 +24,7 @@ public class Cakes_lk_Database extends SQLiteOpenHelper {
         db.execSQL(AdminDB.INSERT_ADMIN);
         db.execSQL("CREATE TABLE Cake(C_Id INTEGER PRIMARY KEY AUTOINCREMENT,C_Name TEXT,C_Flavour TEXT,C_Price REAL,C_Description TEXT);");
         db.execSQL("CREATE TABLE Orders(P_Id INTEGER PRIMARY KEY AUTOINCREMENT,S_Name TEXT,P_Type TEXT,Quantity Integer,Amount Real);");
-
+        db.execSQL("CREATE TABLE Supplier(S_Id INTEGER PRIMARY KEY AUTOINCREMENT,S_Name TEXT,Acc_Num Integer, P_Num Integer,S_Add TEXT);");
 
     }
 
@@ -32,6 +32,7 @@ public class Cakes_lk_Database extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("DROP TABLE IF EXISTS Cake");
         db.execSQL("DROP TABLE IF EXISTS Orders");
+        db.execSQL("DROP TABLE IF EXISTS Suppliers");
         db.execSQL("DROP TABLE IF EXISTS " + AdminDB.USER_TABLE);
         db.execSQL("DROP TABLE IF EXISTS " + AdminDB.ADMIN_TABLE);
         onCreate(db);

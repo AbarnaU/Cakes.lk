@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Supplier.SupplierAdd">
+    tools:context=".cakes.CakeUpdate">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -14,9 +14,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/azur"
+            tools:context=".MainActivity"
             android:orientation="vertical"
-            tools:context=".MainActivity">
+            android:background="@color/azur">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -35,7 +35,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="24dp"
-                        android:text="@string/sup_add"
+                        android:text="@string/edit_sup"
                         android:textSize="24sp"
                         android:textStyle="bold" />
 
@@ -45,10 +45,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="24dp"
-                        android:autofillHints=""
-                        android:baselineAligned="false"
-                        android:hint="@string/pName"
-                        android:inputType="text" />
+                        android:hint="@string/pName" />
 
                     <EditText
                         android:id="@+id/anum"
@@ -64,10 +61,10 @@
                         android:id="@+id/phnum"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
+                        android:layout_gravity="center_horizontal"
                         android:layout_marginTop="24dp"
                         android:hint="@string/Pnum"
-                        android:inputType="number|phone" />
+                        android:inputType="numberDecimal" />
 
                     <EditText
                         android:id="@+id/sadd"
@@ -75,26 +72,43 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="24dp"
-                        android:hint="@string/Sadd"
-                        android:inputType="text" />
+                        android:hint="@string/Sadd" />
 
-                    <Button
-                        android:id="@+id/btn_add1"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="24dp"
-                        android:layout_marginBottom="24dp"
-                        android:background="@drawable/button_style"
-                        android:onClick="clickAddButton"
-                        android:text="@string/add_cakes"
-                        android:textColor="@color/white"
-                        tools:ignore="OnClick" />
+                        android:layout_gravity="center"
+                        android:layout_marginTop="32dp"
+                        android:orientation="horizontal">
 
+                        <Button
+                            android:id="@+id/btnUpdate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:background="@drawable/button_style"
+                            android:text="EDIT"
+                            android:textColor="@color/white" />
+
+                        <ProgressBar
+                            android:id="@+id/progressBar"
+                            style="?android:attr/progressBarStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+
+                        <Button
+                            android:id="@+id/btnDelete"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:background="@drawable/button_style"
+                            android:text="@string/delete"
+                            android:textColor="@color/white" />
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
-
         </LinearLayout>
-
     </androidx.core.widget.NestedScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

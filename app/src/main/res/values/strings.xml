@@ -88,4 +88,7 @@
     <string name="braun">braun</string>
     <string name="Supplier_search">Supplier</string>
     <string name="todo">TODO</string>
+    <string name="sup_add">Adding Supplier</string>
+    <string name="edit_sup">Editing Supplier</string>
+    <string name="s_sup">Search Supplier</string>
 </resources>

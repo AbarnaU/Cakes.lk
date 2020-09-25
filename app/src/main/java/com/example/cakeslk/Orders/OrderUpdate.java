@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.cakeslk.R;
 
-public class OrderUpdate extends AppCompatActivity {
+public class OrderUpdate extends AppCompatActivity{
 
     EditText sName, pQuantity, pAmount;
     Spinner spinner;
