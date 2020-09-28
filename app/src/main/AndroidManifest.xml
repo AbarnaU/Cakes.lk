@@ -20,6 +20,9 @@
         <activity android:name=".Supplier.SupplierUpdate" />
         <activity android:name=".Supplier.SupplierAdd" />
         <activity android:name=".Supplier.SupplierView" />
+        <activity android:name=".Employers.EmployeeUpdate" />
+        <activity android:name=".Employers.EmployeeAdd" />
+        <activity android:name=".Employers.EmployeeView" />
         <activity android:name=".login.Login"
             android:screenOrientation="portrait"
             android:theme="@style/LoginTheme">

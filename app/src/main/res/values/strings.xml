@@ -71,6 +71,8 @@
 
     <string name="n_sup">Add</string>
 
+    <string name="sup_add">Adding Supplier</string>
+
     <string name="pName">Supplier Name </string>
     <string name="Snum">Supplier Account Number</string>
     <string name="Pnum">Phone Number</string>
@@ -88,7 +90,13 @@
     <string name="braun">braun</string>
     <string name="Supplier_search">Supplier</string>
     <string name="todo">TODO</string>
-    <string name="sup_add">Adding Supplier</string>
+    <string name="add_employee">Adding Employee</string>
+    <string name="emp_name">Employee Name</string>
+    <string name="emp_num">Employee Number</string>
+    <string name="emp_address">Employee Address</string>
+    <string name="emp_sal">Employee Salary</string>
+    <string name="emp_update">Updating Employee</string>
+    <string name="emp_search">Search Employee</string>
     <string name="edit_sup">Editing Supplier</string>
     <string name="s_sup">Search Supplier</string>
 </resources>

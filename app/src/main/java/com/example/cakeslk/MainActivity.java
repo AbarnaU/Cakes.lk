@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.example.cakeslk.Employers.EmployeeAdd;
+import com.example.cakeslk.Employers.EmployeeView;
 import com.example.cakeslk.Orders.OrderAdd;
 import com.example.cakeslk.Orders.OrderView;
 import com.example.cakeslk.Supplier.SupplierView;
@@ -52,6 +54,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view){
         switch (view.getId()){
 
+            case R.id.employee_layout:
+                Intent intent1 = new Intent(MainActivity.this, EmployeeView.class);
+                startActivity(intent1);
+                break;
+
             case R.id.cake_layout:
                 Intent intent2 = new Intent(MainActivity.this, CakesView.class);
                 startActivity(intent2);
@@ -63,8 +70,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.supplier_layout:
-                Intent intent1 = new Intent(MainActivity.this, SupplierView.class);
-                startActivity(intent1);
+                Intent intent4 = new Intent(MainActivity.this, SupplierView.class);
+                startActivity(intent4);
                 break;
 
         }
