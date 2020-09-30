@@ -64,6 +64,15 @@
                         android:inputType="numberDecimal" />
 
                     <EditText
+                        android:id="@+id/pQty"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="24dp"
+                        android:hint="@string/cake_qty"
+                        android:inputType="numberDecimal" />
+
+                    <EditText
                         android:id="@+id/pDescription"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

@@ -25,6 +25,7 @@
     <string name="cake_flavour">Cake Flavour</string>
     <string name="cake_desc_hint">Cake Description</string>
     <string name="cake_price_hint">0.00</string>
+    <string name="cake_qty">Quantity</string>
 
     <array name="category">
         <item>"Please select a Flavour"</item>

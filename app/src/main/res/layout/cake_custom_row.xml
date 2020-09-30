@@ -18,7 +18,7 @@
         <ImageView
             android:id="@+id/cakeIcon"
             android:layout_width="108dp"
-            android:layout_height="99dp"
+            android:layout_height="118dp"
             android:layout_marginBottom="4dp"
             android:layout_marginEnd="2dp"
             android:layout_marginLeft="4dp"
@@ -63,11 +63,19 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/cakeDes"
+                android:id="@+id/cakeQty"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/cake_desc_hint"
                 android:textColor="@color/colorPrimaryDark"
+                android:hint="0"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/cakeTotal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Total"
+                android:textColor="@color/total"
                 android:textSize="18sp" />
 
         </LinearLayout>

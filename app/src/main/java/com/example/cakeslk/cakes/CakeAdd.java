@@ -11,10 +11,9 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.cakeslk.R;
-
 public class CakeAdd extends AppCompatActivity {
 
-    EditText cName,cPrice,cDescription;
+    EditText cName,cPrice,cDescription,cQuantity;
     Spinner spinner;
     Button btn_add;
     DatabaseHelper databaseHelper;
@@ -28,6 +27,7 @@ public class CakeAdd extends AppCompatActivity {
         spinner=findViewById(R.id.spinner);
         cPrice=findViewById(R.id.pPrice);
         cDescription=findViewById(R.id.pDescription);
+        cQuantity = findViewById(R.id.pQty);
         btn_add = findViewById(R.id.btn_add);
         databaseHelper = new DatabaseHelper(this);
 
@@ -38,21 +38,25 @@ public class CakeAdd extends AppCompatActivity {
                     if (!cName.getText().toString().isEmpty()) {
                         if (!spinner.getSelectedItem().toString().isEmpty()) {
                             if (!cPrice.getText().toString().isEmpty()) {
-                                if (!cDescription.getText().toString().isEmpty()) {
+                                if (!cQuantity.getText().toString().isEmpty()) {
+                                    if (!cDescription.getText().toString().isEmpty()) {
 
-                                    String cake_Name = cName.getText().toString();
-                                    String cake_Flavour = spinner.getSelectedItem().toString();
+                                        String cake_Name = cName.getText().toString();
+                                        String cake_Flavour = spinner.getSelectedItem().toString();
 
-                                    if (!cake_Flavour.equals("Please select a Flavour")) {
-                                        double cake_Price = Double.parseDouble(cPrice.getText().toString());
-                                        String cake_Description = cDescription.getText().toString();
+                                        if (!cake_Flavour.equals("Please select a Flavour")) {
+                                            double cake_Price = Double.parseDouble(cPrice.getText().toString());
+                                            int cake_quantity = Integer.parseInt(cQuantity.getText().toString());
+                                            String cake_Description = cDescription.getText().toString();
 
-                                        Cake cake = new Cake(cake_Name, cake_Flavour,cake_Price, cake_Description);
-                                        addData(cake);
+                                            Cake cake = new Cake(cake_Name, cake_Flavour,cake_Price,cake_quantity, cake_Description);
+                                            addData(cake);
+                                        } else
+                                            Toast.makeText(CakeAdd.this, "Flavour should be Selected!!!", Toast.LENGTH_LONG).show();
                                     } else
-                                        Toast.makeText(CakeAdd.this, "Flavour should be Selected!!!", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(CakeAdd.this, "Description cannot be Empty!!!", Toast.LENGTH_LONG).show();
                                 } else
-                                    Toast.makeText(CakeAdd.this, "Description cannot be Empty!!!", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(CakeAdd.this, "Quantity cannot be Empty!!!", Toast.LENGTH_LONG).show();
                             } else
                                 Toast.makeText(CakeAdd.this, "price cannot be Empty!!!", Toast.LENGTH_LONG).show();
                         } else

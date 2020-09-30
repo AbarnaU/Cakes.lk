@@ -18,18 +18,7 @@
     <color name="dividerLight">#f2f2f2</color>
     <color name="orderIconFG">#504C4C</color>
     <color name="orderIconBG">#e0e0e0</color>
-
-
+    <color name="total">#EE2A25</color>
     <color name="loginPrimary">#49738b</color>
     <color name="loginPrimaryDark">#2e5077</color>
-
-
-    <color name="orderListDivider">#e0e0e0</color>
-    <color name="orderStatusDenied">#ef5350</color>
-    <color name="orderStatusPending">#f9a825</color>
-    <color name="orderStatusAccepted">#8bc34a</color>
-    <color name="orderIconForeground">#424242</color>
-    <color name="orderIconBorder">#e0e0e0</color>
-    <color name="orderIconBackground">#fff</color>
-
 </resources>

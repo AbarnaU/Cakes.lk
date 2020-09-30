@@ -53,7 +53,7 @@ public class CakesView extends AppCompatActivity{
             Toast.makeText(CakesView.this, "No Cakes to Display!", Toast.LENGTH_LONG).show();
         else {
             while (data.moveToNext()) {
-                cake = new Cake(data.getString(1), data.getString(2), data.getDouble(3), data.getString(4));
+                cake = new Cake(data.getString(1), data.getString(2), data.getDouble(3),data.getInt(4),data.getString(5));
                 cake.setCakeId(data.getInt(0));
                 cakeList.add(cake);
             }

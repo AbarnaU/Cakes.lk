@@ -15,9 +15,10 @@ import android.widget.Toast;
 
 import com.example.cakeslk.R;
 
+
 public class CakeUpdate extends AppCompatActivity {
 
-    EditText cName,cPrice,cDescription;
+    EditText cName,cPrice,cDescription,cQuantity;
     Spinner spinner;
     ProgressBar progressBar;
     Button btnUpdate,btnDelete;
@@ -37,6 +38,7 @@ public class CakeUpdate extends AppCompatActivity {
         cName = findViewById(R.id.pName);
         cDescription = findViewById(R.id.pDescription);
         cPrice = findViewById(R.id.pPrice);
+        cQuantity = findViewById(R.id.pQty);
         btnDelete = findViewById(R.id.btnDelete);
         btnUpdate = findViewById(R.id.btnUpdate);
         spinner = findViewById(R.id.spinner);
@@ -53,11 +55,13 @@ public class CakeUpdate extends AppCompatActivity {
             spinner.setSelection(spinnerPos);
         }
         cPrice.setText(Double.toString(cake.getPrice()));
+        cQuantity.setText(Integer.toString(cake.getQuantity()));
         cDescription.setText(cake.getDescription());
 
         cName.setEnabled(false);
         spinner.setEnabled(false);
         cPrice.setEnabled(false);
+        cQuantity.setEnabled(false);
         cDescription.setEnabled(false);
 
 
@@ -69,6 +73,7 @@ public class CakeUpdate extends AppCompatActivity {
                     cName.setEnabled(true);
                     spinner.setEnabled(true);
                     cPrice.setEnabled(true);
+                    cQuantity.setEnabled(true);
                     cDescription.setEnabled(true);
                 }
                 else{
@@ -78,23 +83,28 @@ public class CakeUpdate extends AppCompatActivity {
                         if(!cName.getText().toString().isEmpty()){
                             if(!spinner.getSelectedItem().toString().equals("Please select a Category")){
                                 if (!cPrice.getText().toString().isEmpty()){
-                                    if(!cDescription.getText().toString().isEmpty()){
+                                    if (!cQuantity.getText().toString().isEmpty()){
+                                        if(!cDescription.getText().toString().isEmpty()){
 
-                                        btnUpdate.setVisibility(View.INVISIBLE);
-                                        btnDelete.setVisibility(View.INVISIBLE);
-                                        progressBar.setVisibility(View.VISIBLE);
+                                            btnUpdate.setVisibility(View.INVISIBLE);
+                                            btnDelete.setVisibility(View.INVISIBLE);
+                                            progressBar.setVisibility(View.VISIBLE);
 
-                                        String cake_Name=cName.getText().toString();
-                                        String cake_Flavour=spinner.getSelectedItem().toString();
-                                        double cake_Price=Double.parseDouble(cPrice.getText().toString());
-                                        String cake_Description=cDescription.getText().toString();
+                                            String cake_Name=cName.getText().toString();
+                                            String cake_Flavour=spinner.getSelectedItem().toString();
+                                            double cake_Price=Double.parseDouble(cPrice.getText().toString());
+                                            int cake_Quantity= Integer.parseInt(cQuantity.getText().toString());
+                                            String cake_Description=cDescription.getText().toString();
 
-                                        Cake cake1 = new Cake(cake_Name,cake_Flavour,cake_Price,cake_Description);
-                                        cake1.setCakeId(cake.getCakeId());
-                                        updateData(cake1);
+                                            Cake cake1 = new Cake(cake_Name,cake_Flavour,cake_Price,cake_Quantity,cake_Description);
+                                            cake1.setCakeId(cake.getCakeId());
+                                            updateData(cake1);
+                                        }
+                                        else
+                                            Toast.makeText(CakeUpdate.this,"Description cannot be Empty!!!",Toast.LENGTH_LONG).show();
                                     }
                                     else
-                                        Toast.makeText(CakeUpdate.this,"Description cannot be Empty!!!",Toast.LENGTH_LONG).show();
+                                        Toast.makeText(CakeUpdate.this,"Quantity cannot be Empty!!!",Toast.LENGTH_LONG).show();
                                 }
                                 else
                                     Toast.makeText(CakeUpdate.this,"Price cannot be Empty!!!",Toast.LENGTH_LONG).show();
@@ -124,6 +134,7 @@ public class CakeUpdate extends AppCompatActivity {
 
                 cName.setText("");
                 cPrice.setText("");
+                cQuantity.setText("");
                 cDescription.setText("");
 
                 Toast.makeText(CakeUpdate.this,"Cake Successfully Deleted!!!",Toast.LENGTH_LONG).show();

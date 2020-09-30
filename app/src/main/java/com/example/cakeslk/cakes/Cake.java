@@ -8,18 +8,20 @@ public class Cake implements Parcelable {
     public int CakeId;
     public String CakeName;
     public String Flavour;
-    public String Description;
     public double Price;
+    public int Quantity;
+    public String Description;
 
     public Cake(){
 
     }
 
-    public Cake(String cakeName, String flavour, double price, String description) {
+    public Cake(String cakeName, String flavour, double price, int quantity, String description) {
         CakeName = cakeName;
         Flavour = flavour;
-        Description = description;
         Price = price;
+        Quantity = quantity;
+        Description = description;
     }
 
     public int getCakeId() {
@@ -62,11 +64,16 @@ public class Cake implements Parcelable {
         Price = price;
     }
 
+    public int getQuantity() { return Quantity; }
+
+    public void setQuantity(int quantity) { Quantity = quantity; }
+
     protected Cake (Parcel parcel){
         CakeId=parcel.readInt();
         CakeName=parcel.readString();
         Flavour=parcel.readString();
         Price=parcel.readDouble();
+        Quantity=parcel.readInt();
         Description=parcel.readString();
     }
 
@@ -82,6 +89,7 @@ public class Cake implements Parcelable {
         dest.writeString(CakeName);
         dest.writeString(Flavour);
         dest.writeDouble(Price);
+        dest.writeInt(Quantity);
         dest.writeString(Description);
 
     }
@@ -98,4 +106,3 @@ public class Cake implements Parcelable {
         }
     };
 }
-

@@ -32,13 +32,18 @@ public class CakeViewAdapter extends ArrayAdapter {
         String cake_name = cake.CakeName;
         String cake_flavour = cake.Flavour;
         double cake_price = cake.Price;
+        int cake_quantity = cake.Quantity;
         String cake_des = cake.Description;
+
+        //Total Price Calculation
+        double total = cake_price * cake_quantity;
 
 
         TextView vcake_name = (TextView) cakeView.findViewById(R.id.cakeName);
         TextView vcake_flavour = (TextView) cakeView.findViewById(R.id.cakeFlavour);
         TextView vcake_price = (TextView) cakeView.findViewById(R.id.cakePrice);
-        TextView vcake_des = (TextView) cakeView.findViewById(R.id.cakeDes);
+        TextView vcake_quantity = (TextView) cakeView.findViewById(R.id.cakeQty);
+        TextView vcake_total = (TextView)cakeView.findViewById(R.id.cakeTotal);
         ImageView cakeIcon = (ImageView) cakeView.findViewById(R.id.cakeIcon);
 
         switch (cake_flavour) {
@@ -56,9 +61,9 @@ public class CakeViewAdapter extends ArrayAdapter {
         }
         vcake_name.setText(cake_name);
         vcake_flavour.setText(cake_flavour);
-        vcake_price.setText("Rs. " +Double.toString(cake_price));
-        vcake_des.setText(cake_des);
-
+        vcake_price.setText("Price : Rs " +Double.toString(cake_price)+"0");
+        vcake_quantity.setText("Qty : "+Integer.toString(cake_quantity));
+        vcake_total.setText("Total Price : Rs "+Double.toString(total)+"0");
         return cakeView;
     }
 }

@@ -19,6 +19,7 @@ public class DatabaseHelper extends Cakes_lk_Database {
         contentValues.put("C_Name",cake.getCakeName());
         contentValues.put("C_Flavour",cake.getFlavour());
         contentValues.put("C_Price",cake.getPrice());
+        contentValues.put("C_Quantity",cake.getQuantity());
         contentValues.put("C_Description",cake.getDescription());
 
         SQLiteDatabase db= getWritableDatabase();
@@ -32,6 +33,7 @@ public class DatabaseHelper extends Cakes_lk_Database {
         contentValues.put("C_Name",cake.getCakeName());
         contentValues.put("C_Flavour",cake.getFlavour());
         contentValues.put("C_Price",cake.getPrice());
+        contentValues.put("C_Quantity",cake.getQuantity());
         contentValues.put("C_Description",cake.getDescription());
         SQLiteDatabase db= getReadableDatabase();
 
