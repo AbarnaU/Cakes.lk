@@ -36,8 +36,8 @@ public class CakeViewAdapter extends ArrayAdapter {
         String cake_des = cake.Description;
 
         //Total Price Calculation
-        double total = cake_price * cake_quantity;
-
+        TotalCalculation tc = new TotalCalculation();
+        double total = tc.totalCalculate(cake_price,cake_quantity);
 
         TextView vcake_name = (TextView) cakeView.findViewById(R.id.cakeName);
         TextView vcake_flavour = (TextView) cakeView.findViewById(R.id.cakeFlavour);
@@ -63,7 +63,7 @@ public class CakeViewAdapter extends ArrayAdapter {
         vcake_flavour.setText(cake_flavour);
         vcake_price.setText("Price : Rs " +Double.toString(cake_price)+"0");
         vcake_quantity.setText("Qty : "+Integer.toString(cake_quantity));
-        vcake_total.setText("Total Price : Rs "+Double.toString(total)+"0");
+        vcake_total.setText("Total Amount : Rs "+Double.toString(total)+"0");
         return cakeView;
     }
 }
