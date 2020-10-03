@@ -36,10 +36,18 @@ public class OrderViewAdapter extends ArrayAdapter {
         double p_amount = order.Amount;
 
 
+        //Total Amount Calculation
+        CalculateAmount ca = new CalculateAmount();
+        double amount = ca.calAmount(p_quant, p_amount);
+
+
+
+
         TextView vs_name = (TextView)orderView.findViewById(R.id.supplierName);
         TextView vp_type = (TextView)orderView.findViewById(R.id.productType);
         TextView vp_quant = (TextView)orderView.findViewById(R.id.quantity);
         TextView vp_amount = (TextView)orderView.findViewById(R.id.amount);
+        TextView v_amount = (TextView)orderView.findViewById(R.id.tamount);
         ImageView orderIcon = (ImageView) orderView.findViewById(R.id.orderIcon);
 
 
@@ -60,7 +68,9 @@ public class OrderViewAdapter extends ArrayAdapter {
         vs_name.setText(s_name);
         vp_type.setText(p_type);
         vp_quant.setText(""+Integer.toString(p_quant));
-        vp_amount.setText("Rs. " +Double.toString(p_amount));
+        vp_amount.setText("Rs. " +Double.toString(p_amount)+"0");
+        v_amount.setText("Total Amount is : Rs. "+Double.toString(amount)+"0");
+
 
 
 

@@ -47,7 +47,8 @@
     <string name="Quantity">Quantity</string>
     <string name = "order_quant_hine">0</string>
     <string name = "order_amount_hine">0.00</string>
-    <string name="t_amount">Total Amount</string>
+    <string name="t_amount"> Unit Price </string>
+    <string name="total">Total Amount </string>
     <string name="add">Add</string>
     <string name="Order_update">Editing Order</string>
     <string name="edit_order">Update</string>
@@ -56,13 +57,19 @@
 
     <array name="product">
         <item>"Please select the Product"</item>
-        <item>Eggs and Milks</item>
+        <item>Eggs</item>
+        <item>Icing Creams</item>
+        <item>Butter</item>
+        <item>Flour</item>
         <item>Vanilla and Choclate Essense</item>
         <item>Decorate Items</item>
     </array>
 
     <array name="order">
-        <item>Eggs and Milks</item>
+        <item>Eggs</item>
+        <item>Icing Creams</item>
+        <item>Butter</item>
+        <item>Flour</item>
         <item>Vanilla and Choclate Essense</item>
         <item>Decorate Items</item>
     </array>
