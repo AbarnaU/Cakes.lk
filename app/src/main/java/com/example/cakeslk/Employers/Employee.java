@@ -10,14 +10,17 @@ public class Employee implements Parcelable {
     public int EmpNum;
     public String EmpAdd;
     public double EmpSal;
+    public double EmpBon;
 
     public Employee() {
     }
-    public Employee(String employeeName, int empNum, String empAdd, double empSal) {
+    public Employee(String employeeName, int empNum, String empAdd, double empSal, double empBon) {
         EmployeeName = employeeName;
         EmpNum = empNum;
         EmpAdd = empAdd;
         EmpSal = empSal;
+        EmpBon = empBon;
+
     }
 
     public int getEmpId() {return EmpId;}
@@ -40,6 +43,10 @@ public class Employee implements Parcelable {
 
     public void setEmpSal(double empSal) {EmpSal = empSal;}
 
+    public double getEmpBon() {return EmpBon;}
+
+    public void setEmpBon(double empBon) {EmpBon = empBon;}
+
 
 
     protected Employee (Parcel parcel){
@@ -48,6 +55,7 @@ public class Employee implements Parcelable {
         EmpNum=parcel.readInt();
         EmpAdd=parcel.readString();
         EmpSal=parcel.readDouble();
+        EmpBon=parcel.readDouble();
     }
 
     @Override
@@ -63,6 +71,7 @@ public class Employee implements Parcelable {
         dest.writeInt(EmpNum);
         dest.writeString(EmpAdd);
         dest.writeDouble(EmpSal);
+        dest.writeDouble(EmpBon);
 
     }
 

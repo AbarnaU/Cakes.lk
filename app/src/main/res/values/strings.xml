@@ -110,4 +110,6 @@
     <string name="s_sup">Search Supplier</string>
     <string name="deli">Transport Charge</string>
     <string name="del_tot">Total Transport Charge</string>
+    <string name="emp_bon">Employee Bonus</string>
+    <string name="total_E">Employee Total</string>
 </resources>

@@ -76,6 +76,15 @@
                         android:hint="@string/emp_sal"
                         android:inputType="numberDecimal" />
 
+                    <EditText
+                        android:id="@+id/eBon"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="24dp"
+                        android:hint="@string/emp_bon"
+                        android:inputType="numberDecimal" />
+
                     <Button
                         android:id="@+id/btn_add"
                         android:layout_width="wrap_content"

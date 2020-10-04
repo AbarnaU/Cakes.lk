@@ -15,7 +15,7 @@ import com.example.cakeslk.R;
 
 public class EmployeeAdd extends AppCompatActivity {
 
-    EditText ename, enumber , eaddress, esalary;
+    EditText ename, enumber , eaddress, esalary, ebonus;
     Button btn_add;
     EmployeeDatabaseHelper employeeDatabaseHelper;
 
@@ -29,6 +29,7 @@ public class EmployeeAdd extends AppCompatActivity {
         enumber = findViewById(R.id.eNum);
         eaddress = findViewById(R.id.eAdd);
         esalary = findViewById(R.id.eSal);
+        ebonus = findViewById(R.id.eBon);
         btn_add = findViewById(R.id.btn_add);
         employeeDatabaseHelper = new EmployeeDatabaseHelper(this);
 
@@ -41,32 +42,43 @@ public class EmployeeAdd extends AppCompatActivity {
                         if (!enumber.getText().toString().isEmpty()) {
                             if (!eaddress.getText().toString().isEmpty()) {
                                 if (!esalary.getText().toString().isEmpty()) {
+                                    if (!ebonus.getText().toString().isEmpty()) {
+                                        String emp_Name = ename.getText().toString();
 
-                                    String emp_Name = ename.getText().toString();
-                                    int emp_Number = Integer.parseInt(enumber.getText().toString());
-                                    String emp_Add = eaddress.getText().toString();
-                                    double emp_Sal = Double.parseDouble(esalary.getText().toString());
+                                        int emp_Number = Integer.parseInt(enumber.getText().toString());
+                                        String emp_Add = eaddress.getText().toString();
+                                        double emp_Sal = Double.parseDouble(esalary.getText().toString());
+                                        double emp_Bon = Double.parseDouble(ebonus.getText().toString());
 
-                                    Employee employee = new Employee(emp_Name, emp_Number, emp_Add, emp_Sal);
-                                    addData(employee);
-                                }else
+                                        Employee employee = new Employee(emp_Name, emp_Number, emp_Add, emp_Sal, emp_Bon);
+                                        addData(employee);
+                                    }else
+                                        Toast.makeText(EmployeeAdd.this, "Bonus couldn't be Empty!!!", Toast.LENGTH_LONG).show();
+                                } else
                                     Toast.makeText(EmployeeAdd.this, "Salary couldn't be Empty!!!", Toast.LENGTH_LONG).show();
-                            }else
+                            } else
                                 Toast.makeText(EmployeeAdd.this, "Address couldn't be Empty!!!", Toast.LENGTH_LONG).show();
-                        }else
+                        } else
                             Toast.makeText(EmployeeAdd.this, "Phone Number couldn't be Empty!!!", Toast.LENGTH_LONG).show();
-                    }else
+                    } else
                         Toast.makeText(EmployeeAdd.this, "Name couldn't be Empty!!!", Toast.LENGTH_LONG).show();
 
-                } catch (NumberFormatException ex) {
+                } catch(NumberFormatException ex){
 
                     Toast.makeText(EmployeeAdd.this, "Invalid Details!!!", Toast.LENGTH_LONG).show();
                 }
+
+
             }
+
+
+
         });
+
     }
 
-            private void addData(Employee employee) {
+
+    private void addData(Employee employee) {
 
         if(employeeDatabaseHelper.insertEmployee(employee)){
 

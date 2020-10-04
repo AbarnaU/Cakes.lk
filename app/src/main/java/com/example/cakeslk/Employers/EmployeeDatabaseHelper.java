@@ -18,6 +18,7 @@ public class EmployeeDatabaseHelper extends Cakes_lk_Database {
         contentValues.put("E_Num", employee.getEmpNum());
         contentValues.put("E_Address", employee.getEmpAdd());
         contentValues.put("E_Salary",employee.getEmpSal());
+        contentValues.put("E_Bonus",employee.getEmpBon());
 
         SQLiteDatabase db= getWritableDatabase();
         long result=db.insert("Employers",null,contentValues);
@@ -31,6 +32,7 @@ public class EmployeeDatabaseHelper extends Cakes_lk_Database {
         contentValues.put("E_Num", employee.getEmpNum());
         contentValues.put("E_Address", employee.getEmpAdd());
         contentValues.put("E_Salary",employee.getEmpSal());
+        contentValues.put("E_Bonus",employee.getEmpBon());
 
         SQLiteDatabase db= getWritableDatabase();
         long result=db.update("Employers",contentValues,  "E_Id =" +employee.getEmpId(),null );

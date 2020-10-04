@@ -14,7 +14,7 @@ import com.example.cakeslk.R;
 
 
 public class EmployeeUpdate extends AppCompatActivity {
-    EditText ename, enumber, eaddress, esalary;
+    EditText ename, enumber, eaddress, esalary, ebonus;
     ProgressBar progressBar;
     Button btnUpdate, btnDelete;
     EmployeeDatabaseHelper employeeDatabaseHelper;
@@ -35,6 +35,7 @@ public class EmployeeUpdate extends AppCompatActivity {
         enumber = findViewById(R.id.eNum);
         eaddress = findViewById(R.id.eAdd);
         esalary = findViewById(R.id.eSal);
+        ebonus = findViewById(R.id.eBon);
         btnUpdate = findViewById(R.id.btnUpdate);
         btnDelete = findViewById(R.id.btnDelete);
         progressBar = findViewById(R.id.progressBar);
@@ -45,11 +46,14 @@ public class EmployeeUpdate extends AppCompatActivity {
         enumber.setText(Integer.toString(employee.getEmpNum()));
         eaddress.setText(employee.getEmpAdd());
         esalary.setText(Double.toString(employee.getEmpSal()));
+        ebonus.setText(Double.toString((employee.getEmpBon())));
+
 
         ename.setEnabled(false);
         enumber.setEnabled(false);
         eaddress.setEnabled(false);
         esalary.setEnabled(false);
+        ebonus.setEnabled(false);
 
 
         btnUpdate.setOnClickListener(new View.OnClickListener() {
@@ -61,27 +65,31 @@ public class EmployeeUpdate extends AppCompatActivity {
                     enumber.setEnabled(true);
                     eaddress.setEnabled(true);
                     esalary.setEnabled(true);
+                    ebonus.setEnabled(true);
                 } else {
                     try {
                         if (!ename.getText().toString().isEmpty()) {
                             if (!enumber.getText().toString().isEmpty()) {
                                 if (!eaddress.getText().toString().isEmpty()) {
-                                    if (!esalary.getText().toString().isEmpty()) {
+                                    if (!esalary.getText().toString().isEmpty()){
+                                        if (!ebonus.getText().toString().isEmpty()){
 
-                                        btnUpdate.setVisibility(View.INVISIBLE);
-                                        btnDelete.setVisibility(View.INVISIBLE);
-                                        progressBar.setVisibility(View.VISIBLE);
+                                            btnUpdate.setVisibility(View.INVISIBLE);
+                                            btnDelete.setVisibility(View.INVISIBLE);
+                                            progressBar.setVisibility(View.VISIBLE);
 
-                                        String emp_Name = ename.getText().toString();
-                                        int emp_Number = Integer.parseInt(enumber.getText().toString());
-                                        String emp_Add = eaddress.getText().toString();
-                                        double emp_Sal = Double.parseDouble(esalary.getText().toString());
+                                            String emp_Name = ename.getText().toString();
+                                            int emp_Number = Integer.parseInt(enumber.getText().toString());
+                                            String emp_Add = eaddress.getText().toString();
+                                            double emp_Sal = Double.parseDouble(esalary.getText().toString());
+                                            double emp_Bon = Double.parseDouble(ebonus.getText().toString());
 
+                                            Employee employee1 = new Employee(emp_Name, emp_Number, emp_Add, emp_Sal,emp_Bon);
+                                            employee1.setEmpId(employee.getEmpId());
+                                            updateData(employee1);
 
-                                        Employee employee1 = new Employee(emp_Name, emp_Number, emp_Add, emp_Sal);
-                                        employee1.setEmpId(employee.getEmpId());
-                                        updateData(employee1);
-
+                                        }else
+                                            Toast.makeText(EmployeeUpdate.this, "Bonus couldn't be Empty!!!", Toast.LENGTH_LONG).show();
                                     } else
                                         Toast.makeText(EmployeeUpdate.this, "Salary couldn't be Empty!!!", Toast.LENGTH_LONG).show();
                                 } else
@@ -113,6 +121,7 @@ public class EmployeeUpdate extends AppCompatActivity {
                 enumber.setText("");
                 eaddress.setText("");
                 esalary.setText("");
+                ebonus.setText("");
 
                 Toast.makeText(EmployeeUpdate.this, "Successfully Deleted!!!", Toast.LENGTH_LONG).show();
 

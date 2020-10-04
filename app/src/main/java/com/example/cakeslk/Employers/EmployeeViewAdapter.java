@@ -32,20 +32,32 @@ public class EmployeeViewAdapter extends ArrayAdapter {
         int emp_Number = employee.EmpNum;
         String emp_Add = employee.EmpAdd;
         double emp_Sal =  employee.EmpSal;
+        double emp_Bon = employee.EmpBon;
+
+
+
+        //Calculation
+        EmployeeTotalSalaryCalculation etsc = new EmployeeTotalSalaryCalculation();
+        double total_sal = etsc.totalSalCalculate(emp_Sal,emp_Bon);
 
         TextView vemp_Name  = (TextView)employeeView.findViewById(R.id.eName);
         TextView vemp_Number = (TextView)employeeView.findViewById(R.id.eNum);
         TextView vemp_Add = (TextView)employeeView.findViewById(R.id.eAdd);
         TextView vemp_Sal = (TextView)employeeView.findViewById(R.id.eSal);
+        TextView vemp_Bon = (TextView)employeeView.findViewById(R.id.eBon);
+        TextView vemp_total = (TextView)employeeView.findViewById(R.id.total);
         ImageView orderIcon = (ImageView) employeeView.findViewById(R.id.employeeIcon);
+
 
         vemp_Name.setText(emp_Name);
         vemp_Number.setText(""+Integer.toString(emp_Number));
         vemp_Add.setText(emp_Add);
         vemp_Sal.setText("Rs. " +Double.toString(emp_Sal));
+        vemp_Bon.setText("Rs. "+Double.toString(emp_Bon));
+        vemp_total.setText("Total Salary : Rs. "+Double.toString(total_sal));
 
 
-    return employeeView;
+        return employeeView;
     }
 
 }

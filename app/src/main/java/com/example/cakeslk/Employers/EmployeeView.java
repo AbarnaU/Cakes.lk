@@ -22,6 +22,7 @@ import com.example.cakeslk.R;
 import java.util.ArrayList;
 
 public class EmployeeView extends AppCompatActivity {
+
     EmployeeDatabaseHelper employeeDatabaseHelper;
     ArrayList<Employee> employeeList;
     Cursor data;
@@ -36,24 +37,25 @@ public class EmployeeView extends AppCompatActivity {
         this.setTitle("Employers");
 
         employeeDatabaseHelper = new EmployeeDatabaseHelper(this);
+
         employeeList = new ArrayList<>();
         listView = findViewById(R.id.employeeListView);
         data = employeeDatabaseHelper.displayEmployee();
         int numRow = data.getCount();
         editText = findViewById(R.id.editText);
 
-
         if (numRow == 0) {
             Toast.makeText(EmployeeView.this, "No Employers to display", Toast.LENGTH_LONG).show();
         } else {
             while (data.moveToNext()) {
-                employee = new Employee(data.getString(1), data.getInt(2), data.getString(3), data.getDouble(4));
+                employee = new Employee(data.getString(1), data.getInt(2), data.getString(3), data.getDouble(4),data.getDouble(  5 ));
                 employee.setEmpId(data.getInt(0));
                 employeeList.add(employee);
             }
             ArrayAdapter cus_obje = new EmployeeViewAdapter(this, employeeList);
             listView.setAdapter(cus_obje);
         }
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -86,6 +88,7 @@ public class EmployeeView extends AppCompatActivity {
                         }
                     }
                 }
+
                 if(tempArrayList.size()==0){
                     Toast.makeText(EmployeeView.this, "No Match Found!!!!", Toast.LENGTH_SHORT).show();
                 }else{
