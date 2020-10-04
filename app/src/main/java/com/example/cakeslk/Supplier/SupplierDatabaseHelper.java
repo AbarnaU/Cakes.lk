@@ -12,8 +12,6 @@ public class SupplierDatabaseHelper extends Cakes_lk_Database {
         super(context);
     }
 
-
-
     public boolean insertSupplier(Supplier supplier){
         ContentValues contentValues = new ContentValues();
         contentValues.put("S_Name",supplier.getSuppliername());
