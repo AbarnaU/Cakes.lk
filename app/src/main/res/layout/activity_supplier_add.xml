@@ -78,6 +78,15 @@
                         android:hint="@string/Sadd"
                         android:inputType="text" />
 
+                    <EditText
+                        android:id="@+id/sdel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="24dp"
+                        android:hint="@string/deli"
+                        android:inputType="text" />
+
                     <Button
                         android:id="@+id/btn_add1"
                         android:layout_width="wrap_content"

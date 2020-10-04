@@ -32,17 +32,25 @@ public class SupplierViewAdapter extends ArrayAdapter {
         int s_Num = supplier.SupplierAccountNumber;
         int p_Num = supplier.PhoneNumber;
         String s_Add = supplier.Address;
+        double s_del = supplier.Delivery;
+
+        //Calculation for Transport
+        CalculateDelivery cd = new CalculateDelivery();
+        double totaltrans = cd.caltransport(s_Add,s_del);
 
         TextView vs_name = (TextView)supplierView.findViewById(R.id.suName);
         TextView vs_Num = (TextView)supplierView.findViewById(R.id.anum);
         TextView vp_Num = (TextView)supplierView.findViewById((R.id.phnum));
         TextView vs_Add = (TextView)supplierView.findViewById(R.id.sadd);
+        TextView vs_del = (TextView)supplierView.findViewById(R.id.sdel);
+        TextView v_total=(TextView)supplierView.findViewById(R.id.Del_Char);
 
         vs_name.setText(s_Name);
         vs_Num.setText(""+Integer.toString(s_Num));
         vp_Num.setText(""+Integer.toString(p_Num));
         vs_Add.setText(s_Add);
-
+        vs_del.setText("Rs. " +Double.toString(s_del));
+        v_total.setText("Total Transport Charge Rs. " +Double.toString(totaltrans));
 
         return supplierView;
 

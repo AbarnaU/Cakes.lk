@@ -74,6 +74,15 @@
                         android:layout_marginTop="24dp"
                         android:hint="@string/Sadd" />
 
+                    <EditText
+                        android:id="@+id/sdel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="24dp"
+                        android:hint="@string/deli"
+                        android:inputType="text" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

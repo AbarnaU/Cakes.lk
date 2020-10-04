@@ -13,7 +13,7 @@ import com.example.cakeslk.R;
 
 public class SupplierAdd extends AppCompatActivity {
 
-    EditText suName, anum, phnum, sadd;
+    EditText suName, anum, phnum, sadd, sdel;
     Button btn_add;
     SupplierDatabaseHelper supplierDatabaseHelper;
 
@@ -26,6 +26,7 @@ public class SupplierAdd extends AppCompatActivity {
         anum = findViewById(R.id.anum);
         phnum = findViewById(R.id.phnum);
         sadd = findViewById(R.id.sadd);
+        sdel = findViewById(R.id.sdel);
         btn_add = findViewById(R.id.btn_add1);
         supplierDatabaseHelper = new SupplierDatabaseHelper(this);
 
@@ -37,16 +38,20 @@ public class SupplierAdd extends AppCompatActivity {
                         if (!anum.getText().toString().isEmpty()) {
                             if (!phnum.getText().toString().isEmpty()) {
                                 if (!sadd.getText().toString().isEmpty()) {
+                                    if (!sdel.getText().toString().isEmpty()) {
 
-                                    String s_Name = suName.getText().toString();
-                                    int s_Num = Integer.parseInt(anum.getText().toString());
-                                    int p_Num = Integer.parseInt(phnum.getText().toString());
-                                    String s_Add = sadd.getText().toString();
+                                        String s_Name = suName.getText().toString();
+                                        int s_Num = Integer.parseInt(anum.getText().toString());
+                                        int p_Num = Integer.parseInt(phnum.getText().toString());
+                                        String s_Add = sadd.getText().toString();
+                                        Double s_Del = Double.parseDouble(sdel.getText().toString());
 
-                                    Supplier supplier = new Supplier(s_Name, s_Num, p_Num, s_Add);
-                                    addData(supplier);
+                                        Supplier supplier = new Supplier(s_Name, s_Num, p_Num, s_Add, s_Del);
+                                        addData(supplier);
 
+                                    }else
 
+                                        Toast.makeText(SupplierAdd.this, "Delivery Charge cannot be empty", Toast.LENGTH_LONG).show();
                                 } else
                                     Toast.makeText(SupplierAdd.this, "Address cannot be empty", Toast.LENGTH_LONG).show();
                             } else

@@ -48,7 +48,7 @@ public class SupplierView extends AppCompatActivity{
             Toast.makeText(SupplierView.this, "No Supplier to Display", Toast.LENGTH_LONG).show();
         else{
             while(data.moveToNext()){
-            supplier = new Supplier(data.getString(1), data.getInt(2), data.getInt(3), data.getString(4));
+            supplier = new Supplier(data.getString(1), data.getInt(2), data.getInt(3), data.getString(4), data.getDouble(5));
             supplier.setSupplierID(data.getInt(0));
             supplierList.add(supplier);
         }

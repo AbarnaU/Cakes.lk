@@ -20,6 +20,8 @@ public class SupplierDatabaseHelper extends Cakes_lk_Database {
         contentValues.put("Acc_Num",supplier.getSupplierAccountNumber());
         contentValues.put("P_Num",supplier.getPhoneNumber());
         contentValues.put("S_Add",supplier.getAddress());
+        contentValues.put("S_Add",supplier.getAddress());
+        contentValues.put("S_Deli",supplier.getDelivery());
 
         SQLiteDatabase db= getWritableDatabase();
         long result=db.insert("Supplier",null,contentValues);
@@ -33,6 +35,7 @@ public class SupplierDatabaseHelper extends Cakes_lk_Database {
         contentValues.put("Acc_Num",supplier.getSupplierAccountNumber());
         contentValues.put("P_Num",supplier.getPhoneNumber());
         contentValues.put("S_Add",supplier.getAddress());
+        contentValues.put("S_Deli",supplier.getDelivery());
 
         SQLiteDatabase db= getReadableDatabase();
 

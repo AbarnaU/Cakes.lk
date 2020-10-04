@@ -10,16 +10,20 @@ public class Supplier implements Parcelable {
     public int SupplierAccountNumber;
     public int PhoneNumber;
     public String Address;
+    public double Delivery;
+
 
     public Supplier() {
 
     }
 
-    public Supplier(String Sname, int supplierAccountnumber, int phnumber, String address) {
+    public Supplier(String Sname, int supplierAccountnumber, int phnumber, String address, double delivery) {
         Suppliername = Sname;
         SupplierAccountNumber = supplierAccountnumber;
         PhoneNumber = phnumber;
         Address = address;
+        Delivery = delivery;
+
 
     }
 
@@ -62,7 +66,13 @@ public class Supplier implements Parcelable {
         Address = address;
     }
 
+    public double getDelivery() {
+        return Delivery;
+    }
 
+    public void setDelivery(double delivery) {
+        Delivery = delivery;
+    }
 
 
     protected Supplier(Parcel in) {
@@ -71,6 +81,7 @@ public class Supplier implements Parcelable {
         SupplierAccountNumber = in.readInt();
         PhoneNumber = in.readInt();
         Address = in.readString();
+        Delivery=in.readDouble();
     }
 
     @Override
@@ -80,6 +91,7 @@ public class Supplier implements Parcelable {
         dest.writeInt(SupplierAccountNumber);
         dest.writeInt(PhoneNumber);
         dest.writeString(Address);
+        dest.writeDouble(Delivery);
     }
 
     @Override
